@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Fisica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #000724 0%, #040475 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 700px;
+            width: 100%;
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #000d46;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+        
+        .question-container {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9ff;
+            border-radius: 15px;
+            border-left: 5px solid #021361;
+        }
+        
+        .question-number {
+            color: #041b82;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .question {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .option {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option:hover {
+            border-color: #000e4b;
+            transform: translateX(5px);
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .option label {
+            cursor: pointer;
+            flex: 1;
+            color: #333;
+        }
+        
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+        
+        .option.disabled {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.95em;
+            line-height: 1.5;
+            display: none;
+        }
+        
+        .feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        
+        .feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #00082d 0%, #020485 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 30px;
+            transition: transform 0.2s ease;
+            font-weight: bold;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 17, 94, 0.4);
+        }
+        
+        .results {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #000621 0%, #00035f 100%);
+            color: white;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .results h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .results p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .reset-btn {
+            background: white;
+            color: #010e45;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+        
+        .reset-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz de Física</h1>
+        <p class="subtitle">FUERZA NORMAL, PESO, Y MOVIMIENTO EN PLANOS INCLINADOS</p>
+        
+        <div id="quiz">
+            <div class="question-container">
+                <div class="question-number">PREGUNTA 1</div>
+                <div class="question">¿Qué ocurre cuando la fuerza aplicada sobre un objeto es exactamente igual a la fuerza de fricción?</div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q1" id="q1a" value="a">
+                        <label for="q1a">El objeto acelera constantemente</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" id="q1b" value="b">
+                        <label for="q1b">La fuerza neta es cero y el objeto no acelera</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" id="q1c" value="c">
+                        <label for="q1c">El objeto se detiene inmediatamente</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" id="q1d" value="d">
+                        <label for="q1d">La fricción desaparece</label>
+                    </div>
+                </div>
+                <div class="feedback" id="feedback1"></div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">PREGUNTA 2</div>
+                <div class="question">¿Cómo se calcula la fuerza de fricción dinámica?</div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q2" id="q2a" value="a">
+                        <label for="q2a">Dividiendo la fuerza aplicada entre la masa del objeto</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" id="q2b" value="b">
+                        <label for="q2b">Multiplicando el coeficiente de fricción por la fuerza normal</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" id="q2c" value="c">
+                        <label for="q2c">Sumando la fuerza aplicada y la fuerza normal</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" id="q2d" value="d">
+                        <label for="q2d">Restando el coeficiente de fricción a la fuerza aplicada</label>
+                    </div>
+                </div>
+                <div class="feedback" id="feedback2"></div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">PREGUNTA 3</div>
+                <div class="question">Si aumentamos el coeficiente de fricción en una simulación manteniendo constante la fuerza aplicada, ¿qué efecto tiene sobre el movimiento del objeto?</div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q3" id="q3a" value="a">
+                        <label for="q3a">El objeto acelera más rápidamente</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" id="q3b" value="b">
+                        <label for="q3b">La aceleración aumenta porque hay más fricción</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" id="q3c" value="c">
+                        <label for="q3c">La fuerza neta disminuye y la aceleración se reduce</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" id="q3d" value="d">
+                        <label for="q3d">No tiene ningún efecto en el movimiento</label>
+                    </div>
+                </div>
+                <div class="feedback" id="feedback3"></div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">PREGUNTA 4</div>
+                <div class="question">¿Qué representa el coeficiente de fricción y qué valores puede tomar?</div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q4" id="q4a" value="a">
+                        <label for="q4a">Es la velocidad máxima del objeto y siempre es mayor a 1</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" id="q4b" value="b">
+                        <label for="q4b">Representa qué tan rugosa o resbalosa es la superficie y toma valores entre 0 y aproximadamente 1</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" id="q4c" value="c">
+                        <label for="q4c">Es la masa del objeto dividida entre su volumen</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" id="q4d" value="d">
+                        <label for="q4d">Representa la fuerza aplicada y siempre es negativo</label>
+                    </div>
+                </div>
+                <div class="feedback" id="feedback4"></div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">PREGUNTA 5</div>
+                <div class="question">¿Dónde actúa la fuerza normal y cuál es su dirección?</div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q5" id="q5a" value="a">
+                        <label for="q5a">Actúa en la dirección del movimiento, paralela a la superficie</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" id="q5b" value="b">
+                        <label for="q5b">Actúa perpendicular a la superficie de contacto, alejándose del objeto</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" id="q5c" value="c">
+                        <label for="q5c">Actúa perpendicular a la superficie de contacto, oponiéndose al peso del objeto</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" id="q5d" value="d">
+                        <label for="q5d">Actúa en dirección opuesta a la fuerza aplicada</label>
+                    </div>
+                </div>
+                <div class="feedback" id="feedback5"></div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">PREGUNTA 6</div>
+                <div class="question">En un plano inclinado, ¿cómo se relaciona la fuerza normal con el peso del objeto?</div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q6" id="q6a" value="a">
+                        <label for="q6a">La fuerza normal es siempre igual al peso del objeto</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" id="q6b" value="b">
+                        <label for="q6b">La fuerza normal es menor que el peso porque depende del ángulo de inclinación (FN = mg × cos θ)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" id="q6c" value="c">
+                        <label for="q6c">La fuerza normal es mayor que el peso en planos inclinados</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" id="q6d" value="d">
+                        <label for="q6d">La fuerza normal no existe en planos inclinados</label>
+                    </div>
+                </div>
+                <div class="feedback" id="feedback6"></div>
+            </div>
+
+            <button class="submit-btn" onclick="checkAnswers()">Verificar Respuestas</button>
+        </div>
+
+        <div class="results" id="results">
+            <h2>Resultados</h2>
+            <p id="score"></p>
+            <p id="message"></p>
+            <button class="reset-btn" onclick="resetQuiz()">Reintentar Quiz</button>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            q1: 'b',
+            q2: 'b',
+            q3: 'c',
+            q4: 'b',
+            q5: 'c',
+            q6: 'b'
+        };
+
+        const explanations = {
+            q1: {
+                correct: '¡Correcto! Cuando la fuerza aplicada es igual a la fricción, la fuerza neta es cero (F_neta = F_aplicada - F_fricción = 0), por lo que no hay aceleración. El objeto permanece en reposo o continúa con velocidad constante.',
+                incorrect: 'Incorrecto. Cuando ambas fuerzas se equilibran, la fuerza neta es cero, lo que significa que el objeto no acelera. Puede estar en reposo o moviéndose con velocidad constante.'
+            },
+            q2: {
+                correct: '¡Correcto! La fuerza de fricción dinámica se calcula multiplicando el coeficiente de fricción (μ) por la fuerza normal (N): F_fricción = μ × N. La fuerza normal es perpendicular a la superficie.',
+                incorrect: 'Incorrecto. La fricción dinámica se calcula como: F_fricción = coeficiente de fricción × fuerza normal. El coeficiente representa qué tan rugosa es la superficie.'
+            },
+            q3: {
+                correct: '¡Correcto! Un mayor coeficiente de fricción aumenta la fuerza de fricción, lo que reduce la fuerza neta (F_neta = F_aplicada - F_fricción). Según la Segunda Ley de Newton (F = ma), menor fuerza neta significa menor aceleración.',
+                incorrect: 'Incorrecto. Al aumentar el coeficiente de fricción, la fuerza de fricción aumenta, lo que reduce la fuerza neta. Esto provoca que la aceleración del objeto disminuya.'
+            },
+            q4: {
+                correct: '¡Correcto! El coeficiente de fricción es un valor adimensional que indica qué tan rugosa o resbalosa es una superficie. Valores cercanos a 0 representan superficies muy resbalosas (hielo), mientras que valores cercanos a 1 o mayores representan superficies rugosas (goma sobre asfalto).',
+                incorrect: 'Incorrecto. El coeficiente de fricción representa las características de la superficie (rugosa o resbalosa) y típicamente toma valores entre 0 (muy resbaloso) y aproximadamente 1 (muy rugoso).'
+            },
+            q5: {
+                correct: '¡Correcto! La fuerza normal actúa perpendicular a la superficie de contacto, ejerciendo una fuerza que contrarresta el peso del objeto. Es la reacción de la superficie al peso del objeto y es fundamental para calcular la fricción.',
+                incorrect: 'Incorrecto. La fuerza normal actúa perpendicular a la superficie de contacto, oponiéndose al componente del peso que presiona contra la superficie. Es esencial para calcular la fricción.'
+            },
+            q6: {
+                correct: '¡Correcto! En un plano inclinado, la fuerza normal es menor que el peso porque solo contrarresta el componente perpendicular del peso. Se calcula como FN = mg × cos(θ), donde θ es el ángulo de inclinación. A mayor ángulo, menor fuerza normal.',
+                incorrect: 'Incorrecto. En planos inclinados, la fuerza normal es menor que el peso del objeto porque solo equilibra el componente perpendicular del peso: FN = mg × cos(θ). Por eso la fricción también es menor.'
+            }
+        };
+
+        let answered = {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false};
+
+        function checkAnswers() {
+            let score = 0;
+            let totalQuestions = 6;
+            let allAnswered = true;
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const questionName = 'q' + i;
+                const selected = document.querySelector(`input[name="${questionName}"]:checked`);
+                
+                if (!selected) {
+                    allAnswered = false;
+                    continue;
+                }
+
+                if (answered[questionName]) continue;
+
+                const feedback = document.getElementById('feedback' + i);
+                const options = document.querySelectorAll(`input[name="${questionName}"]`);
+                
+                options.forEach(option => {
+                    option.parentElement.classList.add('disabled');
+                    if (option.value === correctAnswers[questionName]) {
+                        option.parentElement.classList.add('correct');
+                    }
+                });
+
+                if (selected.value === correctAnswers[questionName]) {
+                    score++;
+                    feedback.className = 'feedback correct';
+                    feedback.innerHTML = '✓ ' + explanations[questionName].correct;
+                    selected.parentElement.classList.add('correct');
+                } else {
+                    feedback.className = 'feedback incorrect';
+                    feedback.innerHTML = '✗ ' + explanations[questionName].incorrect;
+                    selected.parentElement.classList.add('incorrect');
+                }
+
+                answered[questionName] = true;
+            }
+
+            if (!allAnswered) {
+                alert('Por favor responde todas las preguntas antes de verificar.');
+                return;
+            }
+
+            let totalScore = 0;
+            for (let key in answered) {
+                if (answered[key]) {
+                    const selected = document.querySelector(`input[name="${key}"]:checked`);
+                    if (selected && selected.value === correctAnswers[key]) {
+                        totalScore++;
+                    }
+                }
+            }
+
+            document.getElementById('score').textContent = `Puntuación: ${totalScore} de ${totalQuestions}`;
+            
+            let message = '';
+            if (totalScore === totalQuestions) {
+                message = '¡Excelente! Dominas los conceptos de fuerzas y fricción.';
+            } else if (totalScore >= 2) {
+                message = '¡Bien hecho! Tienes un buen entendimiento del tema.';
+            } else {
+                message = 'Sigue practicando. Revisa los conceptos y vuelve a intentarlo.';
+            }
+            
+            document.getElementById('message').textContent = message;
+            document.getElementById('results').style.display = 'block';
+            document.querySelector('.submit-btn').disabled = true;
+        }
+
+        function resetQuiz() {
+            document.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.checked = false;
+                input.parentElement.classList.remove('correct', 'incorrect', 'disabled');
+            });
+
+            document.querySelectorAll('.feedback').forEach(feedback => {
+                feedback.style.display = 'none';
+                feedback.className = 'feedback';
+            });
+
+            document.getElementById('results').style.display = 'none';
+            document.querySelector('.submit-btn').disabled = false;
+            answered = {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false};
+
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
