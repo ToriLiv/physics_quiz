@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Fisica</title>
+    <title>Quiz de Física: Energía</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #000724 0%, #040475 100%);
+            background: linear-gradient(135deg, #f75c2e 0%, #ff007f 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
-        
+
         .container {
             background: white;
             border-radius: 20px;
@@ -29,49 +30,49 @@
             width: 100%;
             padding: 40px;
         }
-        
+
         h1 {
-            color: #000d46;
+            color: #000000;
             text-align: center;
             margin-bottom: 10px;
             font-size: 2em;
         }
-        
+
         .subtitle {
             text-align: center;
             color: #666;
             margin-bottom: 30px;
             font-size: 0.9em;
         }
-        
+
         .question-container {
             margin-bottom: 30px;
             padding: 25px;
             background: #f8f9ff;
             border-radius: 15px;
-            border-left: 5px solid #021361;
+            border-left: 5px solid #ff9100;
         }
-        
+
         .question-number {
-            color: #041b82;
+            color: #ff9100;
             font-weight: bold;
             font-size: 0.9em;
             margin-bottom: 10px;
         }
-        
+
         .question {
             font-size: 1.1em;
             color: #333;
             margin-bottom: 20px;
             line-height: 1.6;
         }
-        
+
         .options {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-        
+
         .option {
             background: white;
             padding: 15px 20px;
@@ -82,40 +83,40 @@
             display: flex;
             align-items: center;
         }
-        
+
         .option:hover {
-            border-color: #000e4b;
+            border-color: #ff9100;
             transform: translateX(5px);
         }
-        
+
         .option input[type="radio"] {
             margin-right: 12px;
             width: 20px;
             height: 20px;
             cursor: pointer;
         }
-        
+
         .option label {
             cursor: pointer;
             flex: 1;
             color: #333;
         }
-        
+
         .option.correct {
             background: #d4edda;
             border-color: #28a745;
         }
-        
+
         .option.incorrect {
             background: #f8d7da;
             border-color: #dc3545;
         }
-        
+
         .option.disabled {
             pointer-events: none;
             opacity: 0.7;
         }
-        
+
         .feedback {
             margin-top: 15px;
             padding: 15px;
@@ -124,23 +125,23 @@
             line-height: 1.5;
             display: none;
         }
-        
+
         .feedback.correct {
             background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
             display: block;
         }
-        
+
         .feedback.incorrect {
             background: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
             display: block;
         }
-        
+
         .submit-btn {
-            background: linear-gradient(135deg, #00082d 0%, #020485 100%);
+            background: linear-gradient(135deg, #f75c2e 0%, #ff007f 100%);
             color: white;
             border: none;
             padding: 15px 40px;
@@ -152,35 +153,35 @@
             transition: transform 0.2s ease;
             font-weight: bold;
         }
-        
+
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 17, 94, 0.4);
+            box-shadow: 0 5px 15px rgba(94, 74, 0, 0.4);
         }
-        
+
         .results {
             display: none;
             text-align: center;
             padding: 30px;
-            background: linear-gradient(135deg, #000621 0%, #00035f 100%);
+            background: linear-gradient(135deg, #f75c2e 0%, #ff9100 100%);
             color: white;
             border-radius: 15px;
             margin-top: 30px;
         }
-        
+
         .results h2 {
             font-size: 2em;
             margin-bottom: 15px;
         }
-        
+
         .results p {
             font-size: 1.2em;
             margin-bottom: 10px;
         }
-        
+
         .reset-btn {
             background: white;
-            color: #010e45;
+            color: #ff007f;
             border: none;
             padding: 12px 30px;
             font-size: 1em;
@@ -190,37 +191,41 @@
             font-weight: bold;
             transition: transform 0.2s ease;
         }
-        
+
         .reset-btn:hover {
             transform: scale(1.05);
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Quiz de Física</h1>
-        <p class="subtitle">FUERZA NORMAL, PESO, Y MOVIMIENTO EN PLANOS INCLINADOS</p>
-        
+        <h1>Quiz: Transformaciones de Energía</h1>
+        <p class="subtitle">ENERGÍA CINÉTICA, POTENCIAL Y TÉRMICA</p>
+
         <div id="quiz">
+
             <div class="question-container">
                 <div class="question-number">PREGUNTA 1</div>
-                <div class="question">¿Qué ocurre cuando la fuerza aplicada sobre un objeto es exactamente igual a la fuerza de fricción?</div>
+                <div class="question">Una pelota se deja caer desde el reposo. Si no hubiera nada de fricción, ¿qué
+                    transformación de energía ocurre justo antes de que toque el suelo?</div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q1" id="q1a" value="a">
-                        <label for="q1a">El objeto acelera constantemente</label>
+                        <label for="q1a">Toda la energía potencial que tenía al inicio se ha convertido en energía
+                            cinética.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q1" id="q1b" value="b">
-                        <label for="q1b">La fuerza neta es cero y el objeto no acelera</label>
+                        <label for="q1b">Tiene la misma cantidad de energía cinética que de energía potencial.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q1" id="q1c" value="c">
-                        <label for="q1c">El objeto se detiene inmediatamente</label>
+                        <label for="q1c">La energía total de la pelota ha disminuido.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q1" id="q1d" value="d">
-                        <label for="q1d">La fricción desaparece</label>
+                        <label for="q1d">Se ha generado energía térmica (calor).</label>
                     </div>
                 </div>
                 <div class="feedback" id="feedback1"></div>
@@ -228,23 +233,24 @@
 
             <div class="question-container">
                 <div class="question-number">PREGUNTA 2</div>
-                <div class="question">¿Cómo se calcula la fuerza de fricción dinámica?</div>
+                <div class="question">Si una pelota cae y la fricción del aire sí la afecta, ¿qué le ocurre a su energía
+                    mecánica (la suma de la cinética y la potencial)?</div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q2" id="q2a" value="a">
-                        <label for="q2a">Dividiendo la fuerza aplicada entre la masa del objeto</label>
+                        <label for="q2a">Se mantiene constante.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" id="q2b" value="b">
-                        <label for="q2b">Multiplicando el coeficiente de fricción por la fuerza normal</label>
+                        <label for="q2b">Aumenta a medida que cae.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" id="q2c" value="c">
-                        <label for="q2c">Sumando la fuerza aplicada y la fuerza normal</label>
+                        <label for="q2c">Disminuye, porque se transforma en energía térmica.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" id="q2d" value="d">
-                        <label for="q2d">Restando el coeficiente de fricción a la fuerza aplicada</label>
+                        <label for="q2d">Se convierte completamente en energía potencial.</label>
                     </div>
                 </div>
                 <div class="feedback" id="feedback2"></div>
@@ -252,23 +258,25 @@
 
             <div class="question-container">
                 <div class="question-number">PREGUNTA 3</div>
-                <div class="question">Si aumentamos el coeficiente de fricción en una simulación manteniendo constante la fuerza aplicada, ¿qué efecto tiene sobre el movimiento del objeto?</div>
+                <div class="question">¿De qué depende la energía cinética (EC) y la energía potencial (EP)?</div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q3" id="q3a" value="a">
-                        <label for="q3a">El objeto acelera más rápidamente</label>
+                        <label for="q3a">La Energía Cinética depende de la velocidad y la masa; la Energía Potencial
+                            depende de la altura y la masa.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q3" id="q3b" value="b">
-                        <label for="q3b">La aceleración aumenta porque hay más fricción</label>
+                        <label for="q3b">La Energía Cinética depende de la altura y la masa; la Energía Potencial
+                            depende de la velocidad y la masa.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q3" id="q3c" value="c">
-                        <label for="q3c">La fuerza neta disminuye y la aceleración se reduce</label>
+                        <label for="q3c">Ambas dependen únicamente de la velocidad.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q3" id="q3d" value="d">
-                        <label for="q3d">No tiene ningún efecto en el movimiento</label>
+                        <label for="q3d">Ambas dependen únicamente de la altura.</label>
                     </div>
                 </div>
                 <div class="feedback" id="feedback3"></div>
@@ -276,23 +284,25 @@
 
             <div class="question-container">
                 <div class="question-number">PREGUNTA 4</div>
-                <div class="question">¿Qué representa el coeficiente de fricción y qué valores puede tomar?</div>
+                <div class="question">Un objeto cae sufriendo fricción. A mitad de camino, la suma de su energía
+                    cinética y potencial es menor que la energía potencial que tenía al inicio. ¿Por qué?</div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q4" id="q4a" value="a">
-                        <label for="q4a">Es la velocidad máxima del objeto y siempre es mayor a 1</label>
+                        <label for="q4a">Porque la energía se está destruyendo.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q4" id="q4b" value="b">
-                        <label for="q4b">Representa qué tan rugosa o resbalosa es la superficie y toma valores entre 0 y aproximadamente 1</label>
+                        <label for="q4b">Porque parte de la energía inicial se ha convertido en energía
+                            térmica.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q4" id="q4c" value="c">
-                        <label for="q4c">Es la masa del objeto dividida entre su volumen</label>
+                        <label for="q4c">Porque la velocidad es cero a mitad de la caída.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q4" id="q4d" value="d">
-                        <label for="q4d">Representa la fuerza aplicada y siempre es negativo</label>
+                        <label for="q4d">Porque la gravedad es más débil en ese punto.</label>
                     </div>
                 </div>
                 <div class="feedback" id="feedback4"></div>
@@ -300,23 +310,24 @@
 
             <div class="question-container">
                 <div class="question-number">PREGUNTA 5</div>
-                <div class="question">¿Dónde actúa la fuerza normal y cuál es su dirección?</div>
+                <div class="question">Si se aumenta la fricción (más resistencia del aire), ¿qué efecto tendrá sobre la
+                    velocidad final de un objeto que cae?</div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q5" id="q5a" value="a">
-                        <label for="q5a">Actúa en la dirección del movimiento, paralela a la superficie</label>
+                        <label for="q5a">La velocidad final será mayor.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q5" id="q5b" value="b">
-                        <label for="q5b">Actúa perpendicular a la superficie de contacto, alejándose del objeto</label>
+                        <label for="q5b">La velocidad final no cambiará.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q5" id="q5c" value="c">
-                        <label for="q5c">Actúa perpendicular a la superficie de contacto, oponiéndose al peso del objeto</label>
+                        <label for="q5c">La velocidad final será menor.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q5" id="q5d" value="d">
-                        <label for="q5d">Actúa en dirección opuesta a la fuerza aplicada</label>
+                        <label for="q5d">La velocidad final se volverá cero.</label>
                     </div>
                 </div>
                 <div class="feedback" id="feedback5"></div>
@@ -324,23 +335,25 @@
 
             <div class="question-container">
                 <div class="question-number">PREGUNTA 6</div>
-                <div class="question">En un plano inclinado, ¿cómo se relaciona la fuerza normal con el peso del objeto?</div>
+                <div class="question">Según la Ley de Conservación de la Energía, ¿cuál es la relación correcta para un
+                    objeto que cae y sufre fricción?</div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q6" id="q6a" value="a">
-                        <label for="q6a">La fuerza normal es siempre igual al peso del objeto</label>
+                        <label for="q6a">Energía Mecánica Inicial = Energía Mecánica Final</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q6" id="q6b" value="b">
-                        <label for="q6b">La fuerza normal es menor que el peso porque depende del ángulo de inclinación (FN = mg × cos θ)</label>
+                        <label for="q6b">Energía Potencial Inicial = Energía Cinética Final - Energía Térmica</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q6" id="q6c" value="c">
-                        <label for="q6c">La fuerza normal es mayor que el peso en planos inclinados</label>
+                        <label for="q6c">Energía Total Inicial = Energía Mecánica Final + Energía Térmica
+                            generada</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q6" id="q6d" value="d">
-                        <label for="q6d">La fuerza normal no existe en planos inclinados</label>
+                        <label for="q6d">Energía Térmica = Energía Mecánica Final</label>
                     </div>
                 </div>
                 <div class="feedback" id="feedback6"></div>
@@ -358,43 +371,45 @@
     </div>
 
     <script>
+       
         const correctAnswers = {
-            q1: 'b',
-            q2: 'b',
-            q3: 'c',
+            q1: 'a',
+            q2: 'c',
+            q3: 'a',
             q4: 'b',
             q5: 'c',
-            q6: 'b'
+            q6: 'c'
         };
 
         const explanations = {
             q1: {
-                correct: '¡Correcto! Cuando la fuerza aplicada es igual a la fricción, la fuerza neta es cero (F_neta = F_aplicada - F_fricción = 0), por lo que no hay aceleración. El objeto permanece en reposo o continúa con velocidad constante.',
-                incorrect: 'Incorrecto. Cuando ambas fuerzas se equilibran, la fuerza neta es cero, lo que significa que el objeto no acelera. Puede estar en reposo o moviéndose con velocidad constante.'
+                correct: '¡Correcto! Sin fricción, la energía mecánica se conserva. Toda la energía de posición (potencial) se transforma en energía de movimiento (cinética).',
+                incorrect: 'Incorrecto. Sin fricción, la energía mecánica se conserva. La energía térmica solo aparece con fricción, y la energía total se mantiene constante.'
             },
             q2: {
-                correct: '¡Correcto! La fuerza de fricción dinámica se calcula multiplicando el coeficiente de fricción (μ) por la fuerza normal (N): F_fricción = μ × N. La fuerza normal es perpendicular a la superficie.',
-                incorrect: 'Incorrecto. La fricción dinámica se calcula como: F_fricción = coeficiente de fricción × fuerza normal. El coeficiente representa qué tan rugosa es la superficie.'
+                correct: '¡Correcto! La fricción "roba" energía mecánica (de movimiento y posición) y la convierte en calor (energía térmica) debido al roce con el aire.',
+                incorrect: 'Incorrecto. La fricción es una fuerza que "quita" energía mecánica al sistema, transformándola en calor.'
             },
             q3: {
-                correct: '¡Correcto! Un mayor coeficiente de fricción aumenta la fuerza de fricción, lo que reduce la fuerza neta (F_neta = F_aplicada - F_fricción). Según la Segunda Ley de Newton (F = ma), menor fuerza neta significa menor aceleración.',
-                incorrect: 'Incorrecto. Al aumentar el coeficiente de fricción, la fuerza de fricción aumenta, lo que reduce la fuerza neta. Esto provoca que la aceleración del objeto disminuya.'
+                correct: '¡Correcto! Energía Cinética = 1/2mv² (depende de masa y velocidad). Energía Potencial = mgh (depende de masa, gravedad y altura).',
+                incorrect: 'Incorrecto. Cinética es movimiento (velocidad) y Potencial es posición (altura). La Energía cinética depende de la velocidad y la Energía Potencial de la altura.'
             },
             q4: {
-                correct: '¡Correcto! El coeficiente de fricción es un valor adimensional que indica qué tan rugosa o resbalosa es una superficie. Valores cercanos a 0 representan superficies muy resbalosas (hielo), mientras que valores cercanos a 1 o mayores representan superficies rugosas (goma sobre asfalto).',
-                incorrect: 'Incorrecto. El coeficiente de fricción representa las características de la superficie (rugosa o resbalosa) y típicamente toma valores entre 0 (muy resbaloso) y aproximadamente 1 (muy rugoso).'
+                correct: '¡Correcto! La energía mecánica total (cinética + potencial) no se conserva. La diferencia es la cantidad que se ha disipado como calor por la fricción.',
+                incorrect: 'Incorrecto. La energía no se destruye. La energía "faltante" se ha transformado en calor (energía térmica) debido a la fricción.'
             },
             q5: {
-                correct: '¡Correcto! La fuerza normal actúa perpendicular a la superficie de contacto, ejerciendo una fuerza que contrarresta el peso del objeto. Es la reacción de la superficie al peso del objeto y es fundamental para calcular la fricción.',
-                incorrect: 'Incorrecto. La fuerza normal actúa perpendicular a la superficie de contacto, oponiéndose al componente del peso que presiona contra la superficie. Es esencial para calcular la fricción.'
+                correct: '¡Correcto! Al aumentar la fricción, una mayor parte de la energía potencial se transforma en calor (energía térmica), dejando menos energía disponible para convertirse en energía cinética (velocidad).',
+                incorrect: 'Incorrecto. Más fricción significa más oposición (freno), lo que "roba" más energía al movimiento y resulta en una velocidad final "menor".'
             },
             q6: {
-                correct: '¡Correcto! En un plano inclinado, la fuerza normal es menor que el peso porque solo contrarresta el componente perpendicular del peso. Se calcula como FN = mg × cos(θ), donde θ es el ángulo de inclinación. A mayor ángulo, menor fuerza normal.',
-                incorrect: 'Incorrecto. En planos inclinados, la fuerza normal es menor que el peso del objeto porque solo equilibra el componente perpendicular del peso: FN = mg × cos(θ). Por eso la fricción también es menor.'
+                correct: '¡Correcto! La energía total al inicio (que es toda mecánica) debe ser igual a la energía mecánica que le queda al final, MÁS toda la energía que se convirtió en calor por el camino.',
+                incorrect: 'Incorrecto. La energía total se conserva. La energía inicial debe ser igual a la suma de la energía mecánica final MÁS la energía térmica generada.'
             }
         };
+        // FIN DE RESPUESTAS Y EXPLICACIONES
 
-        let answered = {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false};
+        let answered = { q1: false, q2: false, q3: false, q4: false, q5: false, q6: false };
 
         function checkAnswers() {
             let score = 0;
@@ -404,7 +419,7 @@
             for (let i = 1; i <= totalQuestions; i++) {
                 const questionName = 'q' + i;
                 const selected = document.querySelector(`input[name="${questionName}"]:checked`);
-                
+
                 if (!selected) {
                     allAnswered = false;
                     continue;
@@ -414,7 +429,7 @@
 
                 const feedback = document.getElementById('feedback' + i);
                 const options = document.querySelectorAll(`input[name="${questionName}"]`);
-                
+
                 options.forEach(option => {
                     option.parentElement.classList.add('disabled');
                     if (option.value === correctAnswers[questionName]) {
@@ -452,16 +467,16 @@
             }
 
             document.getElementById('score').textContent = `Puntuación: ${totalScore} de ${totalQuestions}`;
-            
+
             let message = '';
             if (totalScore === totalQuestions) {
-                message = '¡Excelente! Dominas los conceptos de fuerzas y fricción.';
+                message = '¡Excelente! Dominas los conceptos de transformaciones de energía.';
             } else if (totalScore >= 2) {
                 message = '¡Bien hecho! Tienes un buen entendimiento del tema.';
             } else {
                 message = 'Sigue practicando. Revisa los conceptos y vuelve a intentarlo.';
             }
-            
+
             document.getElementById('message').textContent = message;
             document.getElementById('results').style.display = 'block';
             document.querySelector('.submit-btn').disabled = true;
@@ -480,10 +495,11 @@
 
             document.getElementById('results').style.display = 'none';
             document.querySelector('.submit-btn').disabled = false;
-            answered = {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false};
+            answered = { q1: false, q2: false, q3: false, q4: false, q5: false, q6: false };
 
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
+
 </html>
