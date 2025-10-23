@@ -21,7 +21,6 @@
             align-items: center;
             padding: 20px;
         }
-
         .container {
             background: white;
             border-radius: 20px;
@@ -37,14 +36,12 @@
             margin-bottom: 10px;
             font-size: 2em;
         }
-
         .subtitle {
             text-align: center;
             color: #666;
             margin-bottom: 30px;
             font-size: 0.9em;
         }
-
         .question-container {
             margin-bottom: 30px;
             padding: 25px;
@@ -59,20 +56,17 @@
             font-size: 0.9em;
             margin-bottom: 10px;
         }
-
         .question {
             font-size: 1.1em;
             color: #333;
             margin-bottom: 20px;
             line-height: 1.6;
         }
-
         .options {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-
         .option {
             background: white;
             padding: 15px 20px;
@@ -95,28 +89,23 @@
             height: 20px;
             cursor: pointer;
         }
-
         .option label {
             cursor: pointer;
             flex: 1;
             color: #333;
         }
-
         .option.correct {
             background: #d4edda;
             border-color: #28a745;
         }
-
         .option.incorrect {
             background: #f8d7da;
             border-color: #dc3545;
         }
-
         .option.disabled {
             pointer-events: none;
             opacity: 0.7;
         }
-
         .feedback {
             margin-top: 15px;
             padding: 15px;
@@ -125,14 +114,12 @@
             line-height: 1.5;
             display: none;
         }
-
         .feedback.correct {
             background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
             display: block;
         }
-
         .feedback.incorrect {
             background: #f8d7da;
             color: #721c24;
@@ -168,12 +155,10 @@
             border-radius: 15px;
             margin-top: 30px;
         }
-
         .results h2 {
             font-size: 2em;
             margin-bottom: 15px;
         }
-
         .results p {
             font-size: 1.2em;
             margin-bottom: 10px;
@@ -191,7 +176,6 @@
             font-weight: bold;
             transition: transform 0.2s ease;
         }
-
         .reset-btn:hover {
             transform: scale(1.05);
         }
@@ -407,7 +391,6 @@
                 incorrect: 'Incorrecto. La energía total se conserva. La energía inicial debe ser igual a la suma de la energía mecánica final MÁS la energía térmica generada.'
             }
         };
-        // FIN DE RESPUESTAS Y EXPLICACIONES
 
         let answered = { q1: false, q2: false, q3: false, q4: false, q5: false, q6: false };
 
@@ -419,7 +402,6 @@
             for (let i = 1; i <= totalQuestions; i++) {
                 const questionName = 'q' + i;
                 const selected = document.querySelector(`input[name="${questionName}"]:checked`);
-
                 if (!selected) {
                     allAnswered = false;
                     continue;
@@ -429,7 +411,6 @@
 
                 const feedback = document.getElementById('feedback' + i);
                 const options = document.querySelectorAll(`input[name="${questionName}"]`);
-
                 options.forEach(option => {
                     option.parentElement.classList.add('disabled');
                     if (option.value === correctAnswers[questionName]) {
@@ -476,7 +457,6 @@
             } else {
                 message = 'Sigue practicando. Revisa los conceptos y vuelve a intentarlo.';
             }
-
             document.getElementById('message').textContent = message;
             document.getElementById('results').style.display = 'block';
             document.querySelector('.submit-btn').disabled = true;
