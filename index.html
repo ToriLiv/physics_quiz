@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Física: Energía</title>
+    <title>Quiz de Física: Energía en Montaña Rusa</title>
     <style>
         * {
             margin: 0;
@@ -21,6 +21,7 @@
             align-items: center;
             padding: 20px;
         }
+
         .container {
             background: white;
             border-radius: 20px;
@@ -36,12 +37,14 @@
             margin-bottom: 10px;
             font-size: 2em;
         }
+
         .subtitle {
             text-align: center;
             color: #666;
             margin-bottom: 30px;
             font-size: 0.9em;
         }
+
         .question-container {
             margin-bottom: 30px;
             padding: 25px;
@@ -56,17 +59,20 @@
             font-size: 0.9em;
             margin-bottom: 10px;
         }
+
         .question {
             font-size: 1.1em;
             color: #333;
             margin-bottom: 20px;
             line-height: 1.6;
         }
+
         .options {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
+
         .option {
             background: white;
             padding: 15px 20px;
@@ -89,23 +95,28 @@
             height: 20px;
             cursor: pointer;
         }
+
         .option label {
             cursor: pointer;
             flex: 1;
             color: #333;
         }
+
         .option.correct {
             background: #d4edda;
             border-color: #28a745;
         }
+
         .option.incorrect {
             background: #f8d7da;
             border-color: #dc3545;
         }
+
         .option.disabled {
             pointer-events: none;
             opacity: 0.7;
         }
+
         .feedback {
             margin-top: 15px;
             padding: 15px;
@@ -114,12 +125,14 @@
             line-height: 1.5;
             display: none;
         }
+
         .feedback.correct {
             background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
             display: block;
         }
+
         .feedback.incorrect {
             background: #f8d7da;
             color: #721c24;
@@ -155,10 +168,12 @@
             border-radius: 15px;
             margin-top: 30px;
         }
+
         .results h2 {
             font-size: 2em;
             margin-bottom: 15px;
         }
+
         .results p {
             font-size: 1.2em;
             margin-bottom: 10px;
@@ -176,6 +191,7 @@
             font-weight: bold;
             transition: transform 0.2s ease;
         }
+
         .reset-btn:hover {
             transform: scale(1.05);
         }
@@ -184,32 +200,32 @@
 
 <body>
     <div class="container">
-        <h1>Quiz: Transformaciones de Energía</h1>
-        <p class="subtitle">ENERGÍA CINÉTICA, POTENCIAL Y TÉRMICA</p>
+        <h1>Quiz: Energía en Montaña Rusa</h1>
+        <p class="subtitle">Transformaciones y Conservación de Energía</p>
 
         <div id="quiz">
 
             <div class="question-container">
                 <div class="question-number">PREGUNTA 1</div>
-                <div class="question">Una pelota se deja caer desde el reposo. Si no hubiera nada de fricción, ¿qué
-                    transformación de energía ocurre justo antes de que toque el suelo?</div>
+                <div class="question">Cuando un objeto desciende sin fricción, ¿qué sucede con su energía cinética?
+                </div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q1" id="q1a" value="a">
-                        <label for="q1a">Toda la energía potencial que tenía al inicio se ha convertido en energía
-                            cinética.</label>
+                        <label for="q1a">La energía cinética disminuye porque la altura aumenta.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q1" id="q1b" value="b">
-                        <label for="q1b">Tiene la misma cantidad de energía cinética que de energía potencial.</label>
+                        <label for="q1b">La energía cinética aumenta porque la energía potencial se transforma en
+                            cinética.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q1" id="q1c" value="c">
-                        <label for="q1c">La energía total de la pelota ha disminuido.</label>
+                        <label for="q1c">La energía cinética se mantiene igual durante el descenso.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q1" id="q1d" value="d">
-                        <label for="q1d">Se ha generado energía térmica (calor).</label>
+                        <label for="q1d">La energía cinética se convierte en energía térmica.</label>
                     </div>
                 </div>
                 <div class="feedback" id="feedback1"></div>
@@ -217,24 +233,25 @@
 
             <div class="question-container">
                 <div class="question-number">PREGUNTA 2</div>
-                <div class="question">Si una pelota cae y la fricción del aire sí la afecta, ¿qué le ocurre a su energía
-                    mecánica (la suma de la cinética y la potencial)?</div>
+                <div class="question">¿Cuál es la diferencia principal entre un objeto moviéndose sin fricción y otro
+                    con fricción?</div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q2" id="q2a" value="a">
-                        <label for="q2a">Se mantiene constante.</label>
+                        <label for="q2a">Sin fricción, la energía mecánica se conserva. Con fricción, se transforma en
+                            energía térmica.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" id="q2b" value="b">
-                        <label for="q2b">Aumenta a medida que cae.</label>
+                        <label for="q2b">No hay diferencia, la energía siempre se conserva igual.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" id="q2c" value="c">
-                        <label for="q2c">Disminuye, porque se transforma en energía térmica.</label>
+                        <label for="q2c">Sin fricción hay más velocidad, con fricción hay menos.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" id="q2d" value="d">
-                        <label for="q2d">Se convierte completamente en energía potencial.</label>
+                        <label for="q2d">Con fricción no existe energía potencial.</label>
                     </div>
                 </div>
                 <div class="feedback" id="feedback2"></div>
@@ -242,25 +259,25 @@
 
             <div class="question-container">
                 <div class="question-number">PREGUNTA 3</div>
-                <div class="question">¿De qué depende la energía cinética (EC) y la energía potencial (EP)?</div>
+                <div class="question">Cuando un objeto sube una inclinación sin fricción, ¿qué le ocurre a su velocidad?
+                </div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q3" id="q3a" value="a">
-                        <label for="q3a">La Energía Cinética depende de la velocidad y la masa; la Energía Potencial
-                            depende de la altura y la masa.</label>
+                        <label for="q3a">La velocidad aumenta porque está subiendo.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q3" id="q3b" value="b">
-                        <label for="q3b">La Energía Cinética depende de la altura y la masa; la Energía Potencial
-                            depende de la velocidad y la masa.</label>
+                        <label for="q3b">La velocidad disminuye porque la energía cinética se convierte en
+                            potencial.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q3" id="q3c" value="c">
-                        <label for="q3c">Ambas dependen únicamente de la velocidad.</label>
+                        <label for="q3c">La velocidad se mantiene constante durante la subida.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q3" id="q3d" value="d">
-                        <label for="q3d">Ambas dependen únicamente de la altura.</label>
+                        <label for="q3d">La velocidad desaparece en la cima.</label>
                     </div>
                 </div>
                 <div class="feedback" id="feedback3"></div>
@@ -268,25 +285,24 @@
 
             <div class="question-container">
                 <div class="question-number">PREGUNTA 4</div>
-                <div class="question">Un objeto cae sufriendo fricción. A mitad de camino, la suma de su energía
-                    cinética y potencial es menor que la energía potencial que tenía al inicio. ¿Por qué?</div>
+                <div class="question">¿Qué efecto tiene la fricción sobre la energía mecánica de un objeto en
+                    movimiento?</div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q4" id="q4a" value="a">
-                        <label for="q4a">Porque la energía se está destruyendo.</label>
+                        <label for="q4a">Aumenta la velocidad del objeto.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q4" id="q4b" value="b">
-                        <label for="q4b">Porque parte de la energía inicial se ha convertido en energía
-                            térmica.</label>
+                        <label for="q4b">Aumenta la cantidad de energía térmica (calor) disipada.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q4" id="q4c" value="c">
-                        <label for="q4c">Porque la velocidad es cero a mitad de la caída.</label>
+                        <label for="q4c">No tiene ningún efecto sobre la energía.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q4" id="q4d" value="d">
-                        <label for="q4d">Porque la gravedad es más débil en ese punto.</label>
+                        <label for="q4d">Disminuye solo la energía potencial.</label>
                     </div>
                 </div>
                 <div class="feedback" id="feedback4"></div>
@@ -294,24 +310,26 @@
 
             <div class="question-container">
                 <div class="question-number">PREGUNTA 5</div>
-                <div class="question">Si se aumenta la fricción (más resistencia del aire), ¿qué efecto tendrá sobre la
-                    velocidad final de un objeto que cae?</div>
+                <div class="question">Según la Ley de Conservación de la Energía, ¿cómo se relacionan la energía
+                    inicial, final y térmica cuando hay fricción?</div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q5" id="q5a" value="a">
-                        <label for="q5a">La velocidad final será mayor.</label>
+                        <label for="q5a">La energía inicial siempre es mayor que la final porque se pierde como
+                            calor.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q5" id="q5b" value="b">
-                        <label for="q5b">La velocidad final no cambiará.</label>
+                        <label for="q5b">Energía Inicial = Energía Final + Energía Térmica (la energía se conserva en
+                            total).</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q5" id="q5c" value="c">
-                        <label for="q5c">La velocidad final será menor.</label>
+                        <label for="q5c">La energía final es siempre cero con fricción.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q5" id="q5d" value="d">
-                        <label for="q5d">La velocidad final se volverá cero.</label>
+                        <label for="q5d">No hay relación entre estas energías.</label>
                     </div>
                 </div>
                 <div class="feedback" id="feedback5"></div>
@@ -319,25 +337,25 @@
 
             <div class="question-container">
                 <div class="question-number">PREGUNTA 6</div>
-                <div class="question">Según la Ley de Conservación de la Energía, ¿cuál es la relación correcta para un
-                    objeto que cae y sufre fricción?</div>
+                <div class="question">¿Por qué un objeto termina en reposo con fricción, pero sin fricción podría
+                    mantener movimiento indefinidamente?</div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q6" id="q6a" value="a">
-                        <label for="q6a">Energía Mecánica Inicial = Energía Mecánica Final</label>
+                        <label for="q6a">Con fricción, la energía se disipa como calor hasta que no queda movimiento.
+                            Sin fricción, la energía se conserva indefinidamente.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q6" id="q6b" value="b">
-                        <label for="q6b">Energía Potencial Inicial = Energía Cinética Final - Energía Térmica</label>
+                        <label for="q6b">Es porque sin fricción hay más gravedad.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q6" id="q6c" value="c">
-                        <label for="q6c">Energía Total Inicial = Energía Mecánica Final + Energía Térmica
-                            generada</label>
+                        <label for="q6c">Porque la bola es más pesada sin fricción.</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q6" id="q6d" value="d">
-                        <label for="q6d">Energía Térmica = Energía Mecánica Final</label>
+                        <label for="q6d">No hay diferencia, siempre termina en reposo.</label>
                     </div>
                 </div>
                 <div class="feedback" id="feedback6"></div>
@@ -355,40 +373,39 @@
     </div>
 
     <script>
-       
         const correctAnswers = {
-            q1: 'a',
-            q2: 'c',
-            q3: 'a',
+            q1: 'b',
+            q2: 'a',
+            q3: 'b',
             q4: 'b',
-            q5: 'c',
-            q6: 'c'
+            q5: 'b',
+            q6: 'a'
         };
 
         const explanations = {
             q1: {
-                correct: '¡Correcto! Sin fricción, la energía mecánica se conserva. Toda la energía de posición (potencial) se transforma en energía de movimiento (cinética).',
-                incorrect: 'Incorrecto. Sin fricción, la energía mecánica se conserva. La energía térmica solo aparece con fricción, y la energía total se mantiene constante.'
+                correct: '¡Correcto! Al descender sin fricción, la energía potencial se transforma en energía cinética, haciendo que la bola vaya más rápido. Ves cómo la barra naranja (cinética) crece mientras desciende.',
+                incorrect: 'Incorrecto. Sin fricción, cuando la bola desciende, pierde altura (menos potencial) pero gana velocidad (más cinética). Observa el simulador: la bola acelera al bajar.'
             },
             q2: {
-                correct: '¡Correcto! La fricción "roba" energía mecánica (de movimiento y posición) y la convierte en calor (energía térmica) debido al roce con el aire.',
-                incorrect: 'Incorrecto. La fricción es una fuerza que "quita" energía mecánica al sistema, transformándola en calor.'
+                correct: '¡Correcto! Esta es la diferencia clave. Sin fricción, la energía mecánica se conserva perfectamente. Con fricción, parte se disipa como calor (energía térmica), reduciendo la energía mecánica disponible.',
+                incorrect: 'Incorrecto. La diferencia fundamental es cómo se disipa la energía. Sin fricción no hay pérdidas, con fricción sí hay transformación a energía térmica.'
             },
             q3: {
-                correct: '¡Correcto! Energía Cinética = 1/2mv² (depende de masa y velocidad). Energía Potencial = mgh (depende de masa, gravedad y altura).',
-                incorrect: 'Incorrecto. Cinética es movimiento (velocidad) y Potencial es posición (altura). La Energía cinética depende de la velocidad y la Energía Potencial de la altura.'
+                correct: '¡Correcto! Cuando sube, la bola pierde velocidad porque la energía cinética se transforma en energía potencial. Ves cómo en el simulador la velocidad disminuye en las rampas de subida.',
+                incorrect: 'Incorrecto. Contra la gravedad, la bola desacelera. La velocidad disminuye durante la subida porque la energía de movimiento (cinética) se convierte en energía de posición (potencial).'
             },
             q4: {
-                correct: '¡Correcto! La energía mecánica total (cinética + potencial) no se conserva. La diferencia es la cantidad que se ha disipado como calor por la fricción.',
-                incorrect: 'Incorrecto. La energía no se destruye. La energía "faltante" se ha transformado en calor (energía térmica) debido a la fricción.'
+                correct: '¡Correcto! La fricción disipa energía mecánica transformándola en calor (energía térmica). A mayor fricción, mayor pérdida de energía disponible para el movimiento.',
+                incorrect: 'Incorrecto. La fricción es una fuerza resistiva que consume energía. Esa energía "desaparece" del sistema como calor (energía térmica).'
             },
             q5: {
-                correct: '¡Correcto! Al aumentar la fricción, una mayor parte de la energía potencial se transforma en calor (energía térmica), dejando menos energía disponible para convertirse en energía cinética (velocidad).',
-                incorrect: 'Incorrecto. Más fricción significa más oposición (freno), lo que "roba" más energía al movimiento y resulta en una velocidad final "menor".'
+                correct: '¡Correcto! Esta es la Ley de Conservación de la Energía. La energía nunca desaparece, solo se transforma. Lo que pierdes en energía mecánica es lo que ganas en energía térmica.',
+                incorrect: 'Incorrecto. La energía se conserva en total. Debes considerar todas las formas de energía: mecánica (K+U) y térmica. Lo que falta en una debe estar en la otra.'
             },
             q6: {
-                correct: '¡Correcto! La energía total al inicio (que es toda mecánica) debe ser igual a la energía mecánica que le queda al final, MÁS toda la energía que se convirtió en calor por el camino.',
-                incorrect: 'Incorrecto. La energía total se conserva. La energía inicial debe ser igual a la suma de la energía mecánica final MÁS la energía térmica generada.'
+                correct: '¡Correcto! Con fricción, la energía se "escapa" continuamente como calor hasta que todo se detiene. Sin fricción, no hay forma de disipar la energía, solo se transforma entre cinética y potencial indefinidamente.',
+                incorrect: 'Incorrecto. La razón es la disipación de energía. La fricción es el mecanismo que transforma energía mecánica en térmica, "gastándola" hasta que el movimiento cesa completamente.'
             }
         };
 
@@ -451,11 +468,13 @@
 
             let message = '';
             if (totalScore === totalQuestions) {
-                message = '¡Excelente! Dominas los conceptos de transformaciones de energía.';
-            } else if (totalScore >= 2) {
-                message = '¡Bien hecho! Tienes un buen entendimiento del tema.';
+                message = '¡Excelente! Dominas perfectamente los conceptos de transformación y conservación de energía.';
+            } else if (totalScore >= 5) {
+                message = '¡Muy bien! Tienes un excelente entendimiento. Revisa el tema que fallaste.';
+            } else if (totalScore >= 3) {
+                message = '¡Bien! Vas por buen camino. Practica más con el simulador para reforzar los conceptos.';
             } else {
-                message = 'Sigue practicando. Revisa los conceptos y vuelve a intentarlo.';
+                message = 'Sigue practicando. Experimenta con el simulador variando fricción y velocidad inicial.';
             }
             document.getElementById('message').textContent = message;
             document.getElementById('results').style.display = 'block';
@@ -481,5 +500,4 @@
         }
     </script>
 </body>
-
 </html>
